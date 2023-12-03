@@ -1,13 +1,16 @@
 const express = require("express");
-const errorHandler = require("./controllers/middleware/errorHandler.js");
+const connectDB = require("./config/dbConnection");
+const errorHandler = require("./middleware/errorHandler");
 const dotenv = require("dotenv").config();
+
+connectDB();
 const app = express();
 const port = process.env.PORT || 5005;
 
 app.use(express.json());
-app.use("/api/contacts", require("./routes/contactRoutes.js"))
-app.use(errorHandler)
+app.use("/api/contacts", require("./routes/contactRoutes"));
+app.use(errorHandler);
 
 app.listen(port,() =>{
-console.log(`server is up and in port ${port}`)
+console.log(`server is up and in port ${port}`);
 });
