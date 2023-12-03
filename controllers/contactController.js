@@ -52,6 +52,7 @@ const updateContact = asyncHandler(async (req, res) => {
 });
 
 //@desc delete contact
+
 //@desc DELETE /api/contacts/:id
 //@access public
 const deleteContact = asyncHandler(async (req, res) => {
